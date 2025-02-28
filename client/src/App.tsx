@@ -9,6 +9,7 @@ import DashboardPage from "@/pages/dashboard";
 import AuthPage from "@/pages/auth-page";
 import InventoryPage from "@/pages/inventory";
 import TasksPage from "@/pages/tasks";
+import CropsPage from "@/pages/crops";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <ProtectedRoute path="/" component={DashboardPage} />
       <ProtectedRoute path="/inventory" component={InventoryPage} />
       <ProtectedRoute path="/tasks" component={TasksPage} />
+      <ProtectedRoute path="/crops" component={CropsPage} />
       <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>
