@@ -65,19 +65,21 @@ export default function InventoryPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold">Inventory Management</h1>
-            <p className="text-muted-foreground">Track your farming supplies</p>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <h1 className="text-2xl font-bold">Inventory Management</h1>
+              <p className="text-muted-foreground">Track your farming supplies</p>
+            </div>
+            <nav className="flex w-full sm:w-auto gap-2">
+              <Link href="/">
+                <Button variant="outline" className="flex-1 sm:flex-none">Dashboard</Button>
+              </Link>
+              <Link href="/tasks">
+                <Button variant="outline" className="flex-1 sm:flex-none">Tasks</Button>
+              </Link>
+            </nav>
           </div>
-          <nav className="flex gap-4">
-            <Link href="/">
-              <Button variant="outline">Dashboard</Button>
-            </Link>
-            <Link href="/tasks">
-              <Button variant="outline">Tasks</Button>
-            </Link>
-          </nav>
         </div>
       </header>
 
@@ -85,12 +87,12 @@ export default function InventoryPage() {
         <div className="flex justify-end mb-6">
           <Dialog>
             <DialogTrigger asChild>
-              <Button>
+              <Button className="w-full sm:w-auto">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Item
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>Add Inventory Item</DialogTitle>
               </DialogHeader>
@@ -150,9 +152,9 @@ export default function InventoryPage() {
           </Dialog>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {inventory?.map((item) => (
-            <Card key={item.id}>
+            <Card key={item.id} className="touch-manipulation">
               <CardHeader>
                 <CardTitle>{item.name}</CardTitle>
               </CardHeader>

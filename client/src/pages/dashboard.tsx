@@ -34,66 +34,68 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Avatar className="h-10 w-10 bg-primary">
-              <span className="font-semibold text-primary-foreground">
-                {user?.username.charAt(0).toUpperCase()}
-              </span>
-            </Avatar>
-            <div>
-              <h1 className="text-2xl font-bold">Welcome to AgriHelp</h1>
-              <p className="text-muted-foreground">Farm Dashboard</p>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex items-center gap-4">
+              <Avatar className="h-10 w-10 bg-primary">
+                <span className="font-semibold text-primary-foreground">
+                  {user?.username.charAt(0).toUpperCase()}
+                </span>
+              </Avatar>
+              <div>
+                <h1 className="text-2xl font-bold">Welcome to AgriHelp</h1>
+                <p className="text-muted-foreground">Farm Dashboard</p>
+              </div>
             </div>
+            <nav className="flex w-full sm:w-auto gap-2">
+              <Link href="/inventory">
+                <Button variant="outline" className="flex-1 sm:flex-none">Inventory</Button>
+              </Link>
+              <Link href="/tasks">
+                <Button variant="outline" className="flex-1 sm:flex-none">Tasks</Button>
+              </Link>
+            </nav>
           </div>
-          <nav className="flex gap-4">
-            <Link href="/inventory">
-              <Button variant="outline">Inventory</Button>
-            </Link>
-            <Link href="/tasks">
-              <Button variant="outline">Tasks</Button>
-            </Link>
-          </nav>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        {/* Weather Card */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-          <Card>
+        {/* Weather Cards */}
+        <div className="grid gap-4 grid-cols-2 md:grid-cols-4 mb-8">
+          <Card className="touch-manipulation">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Temperature</CardTitle>
               <Thermometer className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{weatherData.temperature}</div>
+              <div className="text-xl sm:text-2xl font-bold">{weatherData.temperature}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="touch-manipulation">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Humidity</CardTitle>
               <Cloud className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{weatherData.humidity}</div>
+              <div className="text-xl sm:text-2xl font-bold">{weatherData.humidity}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="touch-manipulation">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Wind Speed</CardTitle>
               <Wind className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{weatherData.windSpeed}</div>
+              <div className="text-xl sm:text-2xl font-bold">{weatherData.windSpeed}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="touch-manipulation">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Condition</CardTitle>
               <Sun className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{weatherData.condition}</div>
+              <div className="text-xl sm:text-2xl font-bold">{weatherData.condition}</div>
             </CardContent>
           </Card>
         </div>
@@ -108,7 +110,7 @@ export default function DashboardPage() {
               {crops?.map((crop) => (
                 <div
                   key={crop.id}
-                  className="flex items-center justify-between p-4 border rounded-lg"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg space-y-2 sm:space-y-0"
                 >
                   <div>
                     <h3 className="font-semibold">{crop.name}</h3>
@@ -116,7 +118,7 @@ export default function DashboardPage() {
                       Planted: {new Date(crop.plantedDate).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <p className="font-medium">{crop.quantity} units</p>
                     <p className="text-sm text-muted-foreground">{crop.status}</p>
                   </div>
