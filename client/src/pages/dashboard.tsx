@@ -42,7 +42,7 @@ export default function DashboardPage() {
               </span>
             </Avatar>
             <div>
-              <h1 className="text-2xl font-bold">Welcome, {user?.username}</h1>
+              <h1 className="text-2xl font-bold">Welcome to AgriHelp</h1>
               <p className="text-muted-foreground">Farm Dashboard</p>
             </div>
           </div>

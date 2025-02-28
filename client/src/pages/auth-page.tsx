@@ -36,10 +36,10 @@ export default function AuthPage() {
       <div className="w-full max-w-4xl grid md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold text-green-900 mb-4">
-            Farm Management System
+            AgriHelp
           </h1>
           <p className="text-lg text-green-800 mb-6">
-            Manage your farm efficiently with our comprehensive tools for crop tracking,
+            Your comprehensive farming companion for efficient crop tracking,
             inventory management, and task organization.
           </p>
         </div>
